@@ -2,6 +2,7 @@ from pathlib import Path
 import os 
 from django.contrib.messages import constants
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -10,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&@*gs8x!%n0o(b9)qqa#wnx!gvj=y^^fnfs_j1ec(wnjr%ee6%'
+SECRET_KEY = 'django-insecure-vv^x=r%p6adgleepr77^kh_!bh%)5^10u!hcv&y3d(eaq-8u&$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +40,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'loja.urls'
+ROOT_URLCONF = 'storedesign.urls'
 
 TEMPLATES = [
     {
@@ -57,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'loja.wsgi.application'
+WSGI_APPLICATION = 'storedesign.wsgi.application'
 
 
 # Database
@@ -102,6 +103,9 @@ USE_I18N = True
 USE_TZ = True
 
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.0/howto/static-files/
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)
 STATIC_ROOT = os.path.join('static')
@@ -113,6 +117,8 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# MENSAGENS 
 
 MESSAGE_TAGS = {
     constants.DEBUG: 'alert-primary',
