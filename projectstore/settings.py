@@ -2,7 +2,6 @@ from pathlib import Path
 import os 
 from django.contrib.messages import constants
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -11,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vv^x=r%p6adgleepr77^kh_!bh%)5^10u!hcv&y3d(eaq-8u&$'
+SECRET_KEY = 'django-insecure-u@hxtmhra05wdh&2==sn#zcmw=dpt)r)pg2b1p8%%sk3kxm%%&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,7 +39,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'storedesign.urls'
+ROOT_URLCONF = 'projectstore.urls'
 
 TEMPLATES = [
     {
@@ -58,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'storedesign.wsgi.application'
+WSGI_APPLICATION = 'projectstore.wsgi.application'
 
 
 # Database
@@ -118,8 +117,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# MENSAGENS 
-
+# Mensagens
 MESSAGE_TAGS = {
     constants.DEBUG: 'alert-primary',
     constants.ERROR: 'alert-danger',
