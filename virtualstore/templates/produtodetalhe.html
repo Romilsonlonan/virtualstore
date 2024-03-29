@@ -1,0 +1,46 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}{{produto.titulo}}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+<!--VERIFICAR A POSSIBILIDADE DE COLOCAR ESSA VISUALIZAÇÃO EM UM MODAL E PASSAR O CÓDIGO PARA O TODOS OS PRODUTOS OU PRA HOME-->
+
+{% block content %}
+<section>
+    {% include 'navbar.html' %}
+</section>
+
+<div class="container-detalhe">
+    <div class="row">
+        <h4 class="titulo-detalhe">Produto: {{produto.titulo}}</h4>
+        <div class="produto-imagem">
+            <img src="{{produto.imagem.url}}" alt
+                class="img-fluid" />
+        </div>
+        <div class="produto-info">
+            <h3>{{produto.titulo}}({{produto.visualizacao}} Visualizações)</h3>
+            <br>
+            <h4>Categoria: {{produto.categoria}}</h4>
+            <h5>Preco: <strike>R$. {{produto.preco_marcado}}</strike>R$
+                .{{produto.venda}}
+            </h5>
+            <a href="{% url 'virtualstore:addcarrinho' produto.id %}"
+                class="btn">COMPRAR
+            </a>
+            <br>
+            <p class="text-garantia">Garantia : {{produto.garantia}}</p>
+            <br>
+            <p class="text-politica">Politica Devolucao :
+                {{produto.retorno_devolucao}}
+
+            </p>
+            <br>
+            <p class="texto-descricao">{{produto.descricao}}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}TODOS OS PRODUTOS{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    {% include 'navbar.html' %}
+</section>
+
+<section>
+    <div class="container">
+
+        <h1>Todos os produtos da categoria</h1>
+        <br />
+
+        {% for cat in todoscategorias %}
+        <h2>{{ cat.titulo }}</h2>
+        <br>
+        <div class="row-all-product">
+            {% for p in cat.produto_set.all %}
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a
+                                href="{% url 'virtualstore:produto-detalhe' p.slug %}">
+                                {{ p.titulo }}
+                            </a>
+                        </h4>
+                        <img class="card-img-top" src="{{ p.imagem.url }}"
+                            alt="{{ p.titulo }}">
+                    </div>
+                </div>
+                <div>
+                    <p class="card-text">
+                        Preço: <strike>R$ {{ p.preco_marcado }}</strike> R$
+                        {{ p.venda }}
+                    </p>
+                    <a href="{% url 'virtualstore:addcarrinho' p.id %}"
+                        class="btn btn-primary">COMPRAR</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

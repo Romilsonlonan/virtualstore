@@ -1,0 +1,68 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}navbar{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static '/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="container">
+    <nav>
+        <div class="box">
+            <a href="/" class="logo-link">
+                <img src="{% static '/img/logo.png' %}"
+                    alt="Logo">
+            </a>
+            <div class="pesquisa" id="navbarNav">
+                <form action="/search">
+                    <input name="q" type="text" placeholder="Pesquisar">
+                    <button type="submit">Pesquisar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <nav>
+        <div>
+            <ul>
+                <li class="box-link">
+                    <a class="text-link-a"
+                        href="{% url 'virtualstore:home' %}">HOME</a> |
+                    <a class="text-link-a"
+                        href="{% url 'virtualstore:sobre' %}">SOBRE</a> |
+                    <a class="text-link-a"
+                        href="{% url 'virtualstore:contato' %}">CONTATO</a> |
+                    <a class="text-link-a"
+                        href="{% url 'virtualstore:todos-produtos' %}">CATEGORIAS</a>
+                    |
+                    <a class="text-link-a"
+                        href="{% url 'virtualstore:meucarrinho' %}">CARRINHO</a>
+                    |
+                    {% if request.user.cliente %}
+                    Seja bem vindo{{request.user.username}} |
+                    <a class="text-link-a"
+                        href="{% url 'virtualstore:clientesair' %}">SAIR</a> |
+                    {% else %}
+                    <a class="text-link-a"
+                        href="{% url 'virtualstore:clienteregistrar' %}">CADASTRAR
+                        CLIENTES</a> |
+                    <a class="text-link-a"
+                        href="{% url 'virtualstore:clienteentrar' %}">ENTRAR</a>
+                    |
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>
+<section>
+    <div class="box-banner">
+        <div class="banner">
+            <img src="{% static '/img/promocao.png' %}" alt="Promoção">
+            <!--    <img src="{% static '/img/frete.png' %}" alt="frete"> -->
+        </div>
+    </div>
+</section>
+
+{% endblock %}

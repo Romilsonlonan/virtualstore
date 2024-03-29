@@ -1,0 +1,88 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}Meu Carrinho{% endblock %}
+
+{% block content %}
+<section>
+    {% include 'navbar.html' %}
+</section>
+<section>
+    <div class="container-carrinho">
+        <div class="row">
+            <div class="coluna-car">
+                <div class="sexto-carrinho">
+                    <img src="{% static 'img/sexto.jpg' %}"
+                        alt="sexto do carrinho">
+                </div>
+                <div class="tabela-car">
+                    <h4>ITENS DO CARRINHO</h4>
+                    <table class="tabela">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Produto</th>
+                                <th>Avaliacao</th>
+                                <th>Quantidade</th>
+                                <th>Subtotal</th>
+                                <th>Acao</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for cp in carrinho.carrinhoproduto_set.all %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{cp.produto.titulo}}</td>
+                                <td>{{cp.avaliacao}}</td>
+                                <td>{{cp.quantidade}}</td>
+                                <td>{{cp.subtotal}}</td>
+                                <td>
+                                    <a
+                                        href="{% url 'virtualstore:manipularcarrinho' cp.id %} ?acao=inc"
+                                        class="btn-amarelo"> +
+                                    </a>
+                                    <a
+                                        href="{% url 'virtualstore:manipularcarrinho' cp.id %} ?acao=dcr"
+                                        class="btn-azul"> -
+                                    </a>
+                                    <a
+                                        href="{% url 'virtualstore:manipularcarrinho' cp.id %} ?acao=rmv"
+                                        class="btn-vermelho"> x
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <tr>
+                                <th colspan="5"
+                                    class="text-right">
+                                    Carrinho Total =
+                                    R$ {{carrinho.total}}
+                                </th>
+                                {% if carrinho.carrinhoproduto_set.all %}
+                                <th>
+                                    <a
+                                        href="{% url 'virtualstore:limparcarrinho' %}"
+                                        class="btn-aviso">
+                                        Limpar
+                                    </a>
+                                </th>
+                                {% endif%}
+                            </tr>
+                            {% if carrinho.carrinhoproduto_set.all %}
+                            <th>
+                                <a
+                                    href="{% url 'virtualstore:checkout' %}"
+                                    class="btn-info">
+                                    Processar Compras
+                                </a>
+                            </th>
+                            {% endif%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

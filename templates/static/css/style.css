@@ -1,0 +1,469 @@
+/*CONTAINER DA NAVBAR*/
+/* Estilos para a barra de navegação */
+
+.container {
+    align-items: center;
+    max-width: 100% !important;
+    height: auto;
+    margin: 0 auto;
+    overflow: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0; 
+    background: linear-gradient(to bottom, #cecccd, #b4b2b4);
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    max-width: 290vh;
+    height: auto;
+    margin: 0 auto;
+    overflow: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: -1%;
+    margin-top: -16px; 
+    /* Define um degradê linear como plano de fundo */
+    background: linear-gradient(to bottom, #ad5389, #3c1053);
+}
+
+.logo-link {
+    display: flex; /* Ativa o modelo de layout flexível */
+    align-items: center; /* Centraliza verticalmente o conteúdo */
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: white; /* Cor do texto da logo */
+}
+
+.logo-link img {
+    margin-right: 15px; /* Adiciona margem à direita da imagem */
+    width: 65%; /* Define a largura da imagem da logo */
+    height: auto; /* Permite que a altura seja ajustada automaticamente */
+    margin-top: -4%;
+}
+
+.pesquisa form {
+    display: flex;
+    align-items: center;
+}
+
+.pesquisa input[type="text"] {
+    align-items: center;
+    width: 550px; /* Largura da caixa de pesquisa */
+    padding: 8px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda da caixa de pesquisa */
+    border-radius: 5px; /* Raio da borda */
+    margin-right: 10px; /* Espaçamento à direita */
+}
+
+.pesquisa button[type="submit"] {
+    padding: 8px 15px; /* Espaçamento interno */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Raio da borda */
+    cursor: pointer; /* Muda o cursor para uma mão ao passar sobre o botão */
+}
+
+.pesquisa button[type="submit"]:hover {
+    background-color: #007bff; /* Cor de fundo do botão ao passar o mouse */
+}
+
+.box-link {
+    text-align: center;
+    max-width: 125%;
+    height: auto;
+    margin-left: -30px;
+    overflow: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding:10px;
+    margin-top: 2%; /* Adicione margem superior para espaçamento */
+    /* Define um degradê linear como plano de fundo */
+    background: linear-gradient(to bottom, #ad5389, #3c1053);
+}
+
+.text-link-a {
+    color: white;
+    font-weight: 900; /* Deixa o texto em negrito */
+}
+
+.text-link-a:hover{
+    font-size: 1.2em; /* Aumenta o tamanho do texto em 20% */
+}
+
+.box-banner {
+    display: flex;
+    align-items: center;
+    width: 220vh; /* Define a largura máxima como 100% */
+    height: auto; /* Permite que a altura seja ajustada automaticamente */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    overflow: hidden; /* Oculta qualquer conteúdo que estiver fora do banner */
+    border: 1px solid gray;
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    padding: 10px; /* Adiciona preenchimento interno */
+    margin-top: 0px; /* Adiciona margem superior */
+}
+
+.banner img {
+    width: 217vh; /* Garante que a imagem do banner ocupe toda a largura */
+    height: auto; /* Permite que a altura seja ajustada automaticamente */
+}
+
+.box-categorias {
+    text-align: center;
+    max-width: 115%;
+    height: auto;
+    margin-left: -30px;
+    overflow: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 2%; /* Adicione margem superior para espaçamento */
+    /* Define um degradê linear como plano de fundo */
+    background: linear-gradient(to bottom, #ad5389, #3c1053);
+}
+
+.box-categorias h2 {
+    margin-top: 1%; /* Margem superior para separar o título do conteúdo */
+    color: white; /* Cor do texto do título */
+    font-weight: 900; /* Deixa o texto em negrito */
+}
+
+.card-categorias-lista {
+    list-style: none; /* Remove os marcadores de lista */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card-categorias-lista li {
+    margin: 0 10px; /* Espaçamento entre os itens da lista */
+    margin-top: 2%;
+}
+
+.card-categorias-lista li:hover {
+    border-color: #e0cc19; /* altera a cor da borda ao passar o mouse */
+    transform: scale(1.09); /* Aumenta o tamanho em 5% */
+    transition: transform 0.1s ease; /* Adiciona uma transição suave */
+}
+
+
+.card-categorias-lista li a {
+    display: block; /* Transforma o link em bloco */
+}
+
+.card-categorias-lista img {
+    height: 200px;
+    width: 200px; /* Corrigindo a propriedade height duplicada para width */
+    border-radius: 50%;
+    border: 8px solid blue;
+    
+}
+
+/*===========================================================================================*/
+
+/*CONTAINER DE PRODUTOS NA HOME*/
+/* Estilos para a seção de produtos */
+ 
+.container-home {
+    align-items: center;
+    max-width: 100% !important;
+    height: auto;
+    margin: 0 auto;
+    overflow: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0; 
+    background: linear-gradient(to bottom, #cecccd, #b4b2b4);
+}
+
+.box-produto {
+    display: flex;
+    align-items: center;
+    max-width: 800px; /* Defina a largura máxima do box */
+    margin: 20px auto;
+    
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Define um degradê linear como plano de fundo */
+    background: linear-gradient(to bottom, #ad5389, #3c1053);
+}
+
+.box-produto img {
+    width: 200px; /* Defina a largura da imagem */
+    height: auto; /* Permita que a altura seja ajustada automaticamente */
+    margin-right: 20px; /* Adicione um espaço à direita da imagem */
+}
+
+.descricao-produto {
+    flex: 1; /* Ocupa o espaço restante */
+}
+
+.descricao-produto h1 {
+    font-size: 34px; /* Tamanho do título */
+    margin-bottom: 10px; /* Adicione um espaço abaixo do título */
+    color: white; /* Cor do texto do título */
+    font-weight: 900; /* Deixa o texto em negrito */
+}
+
+.descricao-produto p {
+    margin-bottom: 25px; /* Adicione um espaço abaixo do parágrafo */
+    color: white; /* Cor do texto do título */
+    font-weight: 900; /* Deixa o texto em negrito */
+}
+
+.descricao-produto a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.descricao-produto a:hover {
+    background-color: #0056b3;
+}
+
+.card {
+    width: 90%;
+    height: 80%;
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço do contêiner */
+    border-radius: 0.25rem; /* Borda arredondada */
+    background-color: #fff; /* Cor de fundo */
+    /*margin-bottom: 10px; /* Margem inferior */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.card-img-top {
+    border-top-left-radius: calc(0.25rem - 1px); /* Borda arredondada superior esquerda */
+    border-top-right-radius: calc(0.25rem - 1px); /* Borda arredondada superior direita */
+}
+
+.card-body {
+    padding: 1.25rem; /* Espaçamento interno */
+}
+
+.card-title {
+    text-decoration: none; /* Remove o sublinhado do link */
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 0.55rem; /* Margem inferior do título */
+    font-size: 1.25rem; /* Tamanho do título */
+}
+
+/* margem do texto do botão*/
+.card-text {
+    margin-top: 6%;
+    margin-bottom: 1rem; /* Margem inferior do texto */
+    font-size: 1rem; /* Tamanho do texto */
+}
+
+.card:hover {
+    border: 5px solid rgba(202, 171, 30, 0.125); /* Borda com sombra */
+    border-color: #e0cc19; /* altera a cor da borda ao passar o mouse */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.09); /* Aumenta o tamanho em 5% */
+    transition: transform 0.1s ease; /* Adiciona uma transição suave */
+  }
+
+.btn {
+    color: #fff; /* Cor do texto do botão */
+    background-color: #007bff; /* Cor de fundo do botão */
+    border-color: #007bff; /* Cor da borda do botão */
+    border-radius: 0.25rem; /* Borda arredondada do botão */
+    padding: 0.375rem 0.75rem; /* Espaçamento interno do botão */
+    font-size: 1rem; /* Tamanho do texto do botão */
+    cursor: pointer; /* Cursor ao passar sobre o botão */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+    border-color: #0056b3; /* Cor da borda do botão ao passar o mouse */
+    transform: scale(1.09); /* Aumenta o tamanho em 5% */
+    transition: transform 0.1s ease; /* Adiciona uma transição suave */
+}
+
+.product-column {
+    width: 16.666666666%; /* quivale a col-md-2 em uma grade de 12 colunas do Bootstrap */
+    margin-bottom: 35px; /* Adicione margem inferior conforme necessário */
+}
+
+/*===========================================================================================*/
+
+/*CONTAINER PRODUTO DETALHE*/
+
+.container-detalhe {
+    max-width: 80% !important;
+    height: auto;
+    margin: 0 auto;
+    overflow: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0; 
+    margin-left: auto;
+}
+
+/* Variáveis CSS */
+:root {
+    --coluna-imagem: 6; /* Definindo o tamanho da coluna para a imagem */
+    --coluna-info: 5; /* Definindo o tamanho da coluna para as informações do produto */
+}
+
+.titulo-detalhe {
+    align-items: 0 center;
+    margin-top: 3%;
+    margin-left: 100px; /* Adiciona margem à esquerda */
+    margin-right: 100px; /* Adiciona margem à direita */
+}
+
+/* Imagem do produto */
+.produto-imagem img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px; /* Adicionando margem inferior para separação */
+    margin-top: 13%;
+    margin-left: 100px; /* Adiciona margem à esquerda */
+    margin-right: 100px; /* Adiciona margem à direita */
+}
+
+/* Informações do produto */
+.produto-info {
+    padding-left: 15px; /* Adicionando um padding à esquerda */
+    margin-top: -4%;
+}
+
+.produto-info h3 {
+    font-size: 24px; 
+}
+/* Estilos para o texto alinhado à esquerda */
+.texto-descricao {
+    text-align: justify;
+}
+
+/* Estilos para o botão de comprar */
+.btn {
+    margin-top: 4%;
+}
+
+@media (min-width: 768px) {
+    /* Definindo a largura das colunas */
+    .produto-imagem {
+        flex: 0 0 calc((var(--coluna-imagem) / 12) * 100%);
+        max-width: calc((var(--coluna-imagem) / 12) * 100%);
+        padding-right: 15px;
+    }
+
+    .produto-info {
+        flex: 0 0 calc((var(--coluna-info) / 12) * 100%);
+        max-width: calc((var(--coluna-info) / 12) * 100%);
+        padding-left: 15px;
+    }
+}
+
+
+/*===========================================================================================*/
+
+/* CONTAINER MEU CARRINHO */
+
+.container-carrinho{
+    display: flex;
+    align-items: center;
+    width: 55%; /* Largura máxima do container */
+    margin: 0 auto; /* Centralizar o container na página */
+    padding: 20px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 10px; /* Borda arredondada */
+    margin-left: 22%; /* Adiciona margem à esquerda */
+    margin-right: 22%; /* Adiciona margem à direita */
+}
+
+.coluna-car {
+    width: 66.666%; /* Correspondente a 8 colunas em um total de 12 */
+
+}
+
+.sexto-carrinho img {
+    height: 100px;
+    width: 105px; /* Corrigindo a propriedade height duplicada para width */
+    border-radius: 60%;
+    margin: 0 60%; /* Alinha a imagem ao centro horizontalmente */
+    margin-top: 5%;
+
+}
+
+/* Estilos para a tabela do carrinho */
+.tabela-car {
+    
+    background-color: #f9f9f9; /* Cor de fundo da tabela */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 10px; /* Borda arredondada */
+    margin-left: 100px; /* Adiciona margem à esquerda */
+    margin-right: 100px; /* Adiciona margem à direita */
+}
+
+/* Estilos para o título da tabela */
+.tabela-car h4 {
+    font-size: 1.5em; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilos para a tabela */
+.tabela {
+    width: 100%; /* Largura total */
+    border-collapse: collapse; /* Colapsar bordas */
+}
+
+/* Estilos para as células da tabela */
+.tabela td, .tabela th {
+    padding: 10px; /* Espaçamento interno */
+    border-bottom: 1px solid #ddd; /* Borda inferior */
+}
+
+/* Estilos para os cabeçalhos da tabela */
+.tabela th {
+    background-color: #f2f2f2; /* Cor de fundo dos cabeçalhos */
+    font-weight: bold; /* Negrito */
+}
+
+/* Estilos para os botões dentro da tabela */
+.tabela a {
+    text-decoration: none; /* Remover sublinhado dos links */
+    padding: 5px 10px; /* Espaçamento interno */
+    margin: 0 5px; /* Margem */
+    border-radius: 5px; /* Borda arredondada */
+}
+
+/* Estilos para os botões de ação */
+.btn-amarelo {
+    background-color: yellow; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+}
+
+.btn-azul {
+    background-color: blue; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+}
+
+.btn-vermelho {
+    background-color: red; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+}
+
+.btn-aviso {
+    background-color: orange; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+}
+
+.btn-info {
+    background-color: #007bff; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+}
+
+
+

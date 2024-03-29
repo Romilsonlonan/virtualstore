@@ -12,6 +12,7 @@ class Cliente(models.Model):
     
 class Categoria(models.Model):
     titulo = models.CharField(max_length=200)
+    imagem_categoria = models.ImageField(upload_to="categorias", blank=True, null=True)
     slug = models.SlugField(unique=True)
 
     def __str__(self):
