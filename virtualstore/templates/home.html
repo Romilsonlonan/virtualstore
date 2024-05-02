@@ -4,7 +4,7 @@
 {% block title %}Home{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -12,23 +12,50 @@
     {% include 'navbar.html' %}
 </section>
 
+<!-- ########### CARDS CONTAINER ATENDIMENTOS ESPECIALIZADO ############ -->
+
 <section>
     <div class="container-home">
-        <div class="box-produto">
-            <img src="{% static 'img/compras.png' %}"
-                alt="Nome do Produto">
-            <div class="descricao-produto">
-                <h1>Semana do consumidor é aqui!</h1>
-                <p>Super ofertas imperdíveis!!!</p>
-                <a href="#">Saiba mais</a>
+        <div class="row">
+            <div class="cards-container">
+                <ul class="cards">
+                    <li class="card">
+                        <h3>Título do Card 2</h3>
+                        <img src="{% static 'img/entrega.png' %}"
+                            alt="Nome do Produto">
+                        <p>Texto do Card 2</p>
+                    </li>
+
+                    <li class="card">
+                        <h3>Título do Card 3</h3>
+                        <img src="{% static 'img/suporte.png' %}"
+                            alt="Nome do Produto">
+                        <p>Texto do Card 3</p>
+                    </li>
+
+                    <li class="card">
+                        <h3>Título do Card 4</h3>
+                        <img src="{% static 'img/devolucao.png' %}"
+                            alt="Nome do Produto">
+                        <p>Texto do Card 4</p>
+                    </li>
+                    <li class="card">
+                        <h3>Título do Card 4</h3>
+                        <img src="{% static 'img/pagamentoseguro.png' %}"
+                            alt="Nome do Produto">
+                        <p>Texto do Card 4</p>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <br />
+    </div>
+</section>
+<!-- ########### PRIMEIRA COLUNA PRODUTOS ###########-->
+<section class="conteudo">
+    <main class="container-fluid-produtos">
         <div class="row">
-            {% for p in produto_list|slice:":12" %}
-            <!-- Limite para exibir apenas os 12 primeiros produtos na home -->
-            <div class="product-column">
+            {% for p in lista_produto|slice:":12" %}
+            <div class="col-md-3 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">
@@ -36,29 +63,131 @@
                                 href="{% url 'virtualstore:produto-detalhe' p.slug %}">
                                 {{ p.titulo }}
                             </a>
-                            <img class="card-img-top"
-                                src="{{ p.imagem.url }}"
-                                alt="{{ p.titulo }}">
                         </h4>
+                        <img class="card-produto-img" src="{{ p.imagem.url }}"
+                            alt="{{ p.titulo }}">
+                        <p class="card-text">
+                            Preço: <del>R$ {{ p.preco_marcado }}</del> R$ {{
+                            p.venda }}
+                        </p>
+                        <a href="{% url 'virtualstore:addcarrinho' p.id %}"
+                            class="btn btn-primary">COMPRAR</a>
                     </div>
-                </div>
-                <div>
-                    <p class="card-text">
-                        Preço: <strike>R$ {{ p.preco_marcado }}</strike> R$
-                        {{ p.venda }}
-                    </p>
-                    <a href="{% url 'virtualstore:addcarrinho' p.id %}"
-                        class="btn btn-primary">COMPRAR</a>
                 </div>
             </div>
             {% endfor %}
         </div>
 
-    </div>
+        <div class="paginacao-container">
+            <ul class="paginacao">
+                {% if lista_produto.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="#" tabindex="-1"
+                        aria-disabled="true">Anterior</a>
+                </li>
+                {% endif %}
+                {% for i in lista_produto.paginator.page_range %}
+                {% if i == lista_produto.number %}
+                <li class="page-item active">
+                    <a class="page-link">{{i}}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{i}}">{{i}}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+
+                {% if lista_produto.has_next %}
+                <li class="page-item">
+                    <a class="page-link"
+                        href="?page={{lista_produto.next_page_number}}">Próximo</a>
+                </li>
+
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">
+                        Próximo
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </main>
+
+    <!-- ########### SEGUNDA COLUNA POSTS ###########-->
+    <main class="container-fluid-posts">
+
+        <div class="coluna-posts">
+            <div class="card-post">
+                <div class="card-body">
+                    <h4 class="card-title">Últimas Notícias</h4>
+                    <ul>
+                        {% for post in latest_news %}
+                        <li>
+                            <a
+                                href="{% url 'virtualstore:detalhe_post' post_id=post.id %}">
+                                <div class="card-post">
+                                    <div class="card-header">
+                                        <h5
+                                            class="card-title">{{post.titulo_post}}
+                                        </h5>
+                                        <p
+                                            class="card-text">{{post.data_publicacao}}</p>
+                                    </div>
+                                    <img
+                                        src="{{ post.imagem_post.url }}"
+                                        class="card-img-top"
+                                        alt="{{ post.titulo_post }}"
+                                        width="270"
+                                        height="200">
+                                    <div class="card-body">
+                                        <p
+                                            class="card-text">{{post.conteudo_post|slice:":50"}}...</p>
+                                        <br />
+                                        <a href="#"
+                                            class="btn btn-primary">Ver
+                                            mais</a>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </main>
 </section>
 <section>
     <div class="box-categorias">
         <h2>Categorias</h2> <!-- Título movido para dentro do box -->
+        <card-slider></card-slider>
+        <ul class="card-categorias-lista">
+            <li class="card-categoria"><a href="#"><img
+                        src="{% static 'img/eletroeletronicos.png' %}"
+                        alt></a></li>
+            <li class="card-categoria"><a href="#"><img
+                        src="{% static 'img/moveis.jpg' %}"
+                        alt></a></li>
+            <li class="card-categoria"><a href="#"><img
+                        src="{% static 'img/saude.jpeg' %}"
+                        alt></a></li>
+            <li class="card-categoria"><a href="#"><img
+                        src="{% static 'img/brinquedos.png' %}"
+                        alt></a></li>
+            <li class="card-categoria"><a href="#"><img
+                        src="{% static 'img/esportes.jpg' %}"
+                        alt></a></li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <div class="box-categorias">
+        <h2>Categorias</h2> <!-- Título movido para dentro do box -->
+
         <ul class="card-categorias-lista">
             <li class="card-categoria"><a href="#"><img
                         src="{% static 'img/eletroeletronicos.png' %}"
@@ -68,11 +197,15 @@
             <li class="card-categoria"><a href="#"><img
                         src="{% static 'img/saude.jpeg' %}" alt></a></li>
             <li class="card-categoria"><a href="#"><img
-                        src="{% static 'img/brinquedos.png' %}" alt></a></li>
+                        src="{% static 'img/brinquedos.png' %}"
+                        alt></a></li>
             <li class="card-categoria"><a href="#"><img
                         src="{% static 'img/esportes.jpg' %}" alt></a></li>
         </ul>
     </div>
 </section>
-
+{% include 'footer.html' %}
+{% block scripts %}
+<script src="{% static 'js/cardslider.js' %}"></script>"
+{% endblock %}
 {% endblock %}

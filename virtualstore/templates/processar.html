@@ -1,0 +1,62 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}Processar Compra{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container align-items-center">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="m-4">
+                    <h3>item do carrinho</h3>
+
+                    <a
+                        href="{% url 'virtualstore:meucarrinho' %}"
+                        class="btn btn-warning">
+                        Atualizar
+                    </a>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Produto</th>
+                                <th>Avaliacao</th>
+                                <th>Quantidade</th>
+                                <th>Subtotal</th>
+                                <th>Acao</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cp in carrinho.carrinhoproduto_set.all %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{cp.produto.titulo}}</td>
+                                <td>{{cp.avaliacao}}</td>
+                                <td>{{cp.quantidade}}</td>
+                                <td>{{cp.subtotal}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tr>
+                            <th colspan="4" class="text-right">Valor Total</th>
+                            <th>R$ . {{carrinho.total}}</th>
+
+                        </tr>
+                    </table>
+                </div>
+                <!--ADICIONAR UM CSS AO FORMULARIO-->
+                <div class="col-md-6">
+                    <h3>Detalhes Produto</h3>
+                    <form action method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="bnt-sm btn-info">Comprar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

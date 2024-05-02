@@ -1,5 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone 
+#from ckeditor.fields import RichTextField
+#from ckeditor_uploader.fields import RichTextUploadingField
+
+
+class Admin(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    nome_completo = models.CharField(max_length=100)
+    image = models.ImageField(upload_to="admins")
+    tel = models.CharField(max_length=20)
+     
+    def __str__(self):
+        return self.user.username
 
 class Cliente(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
@@ -80,4 +93,35 @@ class PedidoOrdem(models.Model):
     criado_em = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return "Pedido_Ordem:" + str(self.id) 
+        return "PedidoOrdem:" + str(self.id) 
+    
+    
+class Post(models.Model):
+    POST_TYPE_CHOICES = [
+        ('news', 'Notícia'),
+        ('offer', 'Oferta Exclusiva'),
+        ('other', 'Outro'),
+    ]
+
+    titulo_post = models.CharField(max_length=200)
+    sumario = models.TextField(max_length=255)
+    conteudo_post = models.TextField() #() sem limites de armazenamento de caracteres
+    #sumario = RichTextField(max_length=255)
+    #conteudo_post = RichTextUploadingField() 
+    autor_post = models.ForeignKey('auth.User', on_delete=models.PROTECT)
+    data_criacao = models.DateTimeField(default=timezone.now)
+    data_publicacao = models.DateTimeField(blank=True, null=True)
+    imagem_post = models.ImageField(upload_to='imagem_post/', blank=True, null=True)  # Campo para o upload da imagem
+    compartilhavel = models.BooleanField(default=True)
+    comentarios_ativados = models.BooleanField(default=True)
+    tipo_post = models.CharField(max_length=10, choices=POST_TYPE_CHOICES, default='other')
+
+    class Meta:
+        ordering = ['-data_publicacao']
+
+    def publicar(self):
+        self.data_publicacao = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.titulo_post

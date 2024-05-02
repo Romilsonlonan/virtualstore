@@ -1,6 +1,6 @@
 from django import forms
 # esta com erro no django.forms add provisoriamente o from django import forms acima
-#from django.forms import ModelForm, TextInput, EmailInput
+from django.forms import ModelForm, TextInput, EmailInput
 from .models import PedidoOrdem, Cliente
 from django.contrib.auth.models import User
 
@@ -8,7 +8,24 @@ class Checar_PedidoForm(forms.ModelForm):
     class Meta:
         model = PedidoOrdem
         fields = ["ordenado_por", "endereco_envio", "telefone", "email"]
-
+        widgets = {
+            'ordenado_por': forms.TextInput(attrs={
+                'class': 'form-control placeholder-style',
+                'placeholder': 'Pedido Por',
+            }),
+            'endereco_envio': forms.TextInput(attrs={
+                'class': 'form-control placeholder-style',
+                'placeholder': 'Endereço de Envio',
+            }),
+            'telefone': forms.TextInput(attrs={
+                'class': 'form-control placeholder-style',
+                'placeholder': 'Telefone',
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control placeholder-style',
+                'placeholder': 'Email',
+            }),
+        }
         
  
 class ClienteRegistrarForm(forms.ModelForm):
@@ -37,3 +54,5 @@ class ClienteEntrarForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput())
     
     email = forms.CharField(widget=forms.EmailInput())
+    
+  

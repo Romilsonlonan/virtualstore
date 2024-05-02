@@ -1,0 +1,85 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block content %}
+<!--ERROR AO CRIAR AS LABELS-->
+<div class="container-perfil">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <h3>Detalhes do Cliente :</h3>
+            <p>
+                <span
+                    class="font-weight-bold">
+                    Nome:
+                </span>
+                {{cliente.nome_completo))
+            </p>
+            <p>
+                <span
+                    class="font-weight-bold">
+                    Usuário:
+                </span>
+                {{cliente.user.username))
+            </p>
+            <p>
+                <span
+                    class="font-weight-bold">
+                    Email:
+                </span>
+                {{cliente.user.email))
+            </p>
+            <p>
+                <span
+                    class="font-weight-bold">
+                    Endereço:
+                </span>
+                {{cliente.endereco))
+            </p>
+            <p>
+                <span
+                    class="font-weight-bold">
+                    Cadastrado em:
+                </span>
+                {{cliente.data_on))
+            </p>
+        </div>
+        <div class="col-md-6 mx auto">
+            <h3 class="font-weight-bold"></h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Pedido ID</th>
+                        <th>Valor</th>
+                        <th>Data Pedido</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pedidos in pedidos %}
+                    <tr>
+                        <td>{(forloop.counter)}</td>
+
+                        <td>
+                            <a
+                                href="{% url 'virtualstore:clientepedidodetalhe' pedidos.pk %}">
+
+                                Pedido_Numero{(pedido.id)}
+                            </td>
+                        </a>
+
+                        <td>{(pedido.total)}</td>
+                        <td>{(pedido.criado_em)}Atras</td>
+                        <td>{(pedido.pedido_status)}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

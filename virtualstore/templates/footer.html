@@ -1,0 +1,74 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}footer{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <footer class="footer">
+        <div class="container-footer">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Institucional</h5>
+                    <ul>
+                        <li><a href="#">Loja</a></li>
+                        <li><a href="#">Categorias</a></li>
+                        <li><a href="#">Lançamentos</a></li>
+                        <li><a href="#">Cupons</a></li>
+                        <li><a href="#">Contatos</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Informações</h5>
+                    <ul>
+                        <li><a href="#">Perguntas frequentes</a></li>
+                        <li><a href="#">Termos e condições</a></li>
+                        <li><a href="#">Segurança e privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Categorias</h5>
+                    <ul>
+                        <li><a href="#">Eletrodomésticos</a></li>
+                        <li><a href="#">Moveis e Decorações</a></li>
+                        <li><a href="#">Livraria</a></li>
+                        <li><a href="#">Bem Estar e Saúde</a></li>
+                        <li><a href="#">Automotivo</a></li>
+                        <li><a href="#">Vestuário</a></li>
+                        <li><a href="#">Petshop</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Parceiros</h5>
+                    <ul>
+                        <li><a href="#">Girafa</a></li>
+                        <li><a href="#">Magazine Luiza</a></li>
+                        <li><a href="#">?????</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Newsletter</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur
+                        adipiscing
+                        elit.</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Estamos Juntos</h5>
+                    <!-- Foto -->
+                    <img src="{% static 'img/r&k.png' %}" alt="r&k"
+                        width="300" height="200">
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
+{% endblock %}

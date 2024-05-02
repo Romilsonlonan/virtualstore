@@ -3,6 +3,10 @@
 
 {% block title %}Meu Carrinho{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/meucarrinho.css' %}">
+{% endblock %}
+
 {% block content %}
 <section>
     {% include 'navbar.html' %}

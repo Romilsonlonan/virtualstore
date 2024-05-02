@@ -1,0 +1,114 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}Pesquisa Produtos{% endblock %}
+
+{% block head %}
+<!-- Adicione o CSS do Bootstrap para estilizar o modal -->
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+<section>
+    {% include 'navbar.html' %}
+</section>
+
+<section>
+    <div class="container-pesquisar">
+        <div class="row">
+            <div class="col-md-12">
+                {% if mensagem_alerta %}
+                <div class="alert alert-warning" role="alert">
+                    {{ mensagem_alerta }}
+                </div>
+                {% else %}
+                <h3 class="text-center">
+                    RESULTADO DA PESQUISA
+                    <span class="text-success">"{{request.GET.keyword}}"</span>
+                </h3>
+                <hr>
+                {% endif %}
+                {% if results %}
+                {% for result in results %}
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{result.imagem.url}}" class="img-fluid"
+                            alt="result">
+                    </div>
+                    <div class="col-md-8">
+                        <h4><a
+                                href="{% url 'virtualstore:produto-detalhe' result.slug %}">{{result.titulo}}
+                            </a>
+                        </h4>
+                        <p>{{result.descricao|truncatewords:50}}</p>
+                        <p>Política de Devolução{{result.retorno_devolucao}}</p>
+                        <a
+                            href="{% url 'virtualstore:addcarrinho' result.id %}">{{result.titulo}}
+                        </a>
+
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- Modal -->
+                <div class="modal fade"
+                    id="resultadoPesquisaModal"
+                    tabindex="-1" role="dialog"
+                    aria-labelledby="resultadoPesquisaModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"
+                                    id="resultadoPesquisaModalLabel">Resultado
+                                    da Pesquisa</h5>
+                                <button type="button" class="close"
+                                    data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" id="searchResults">
+                                <!-- Aqui é onde seu conteúdo a ser exibido -->
+                                {% if results %}
+                                {% for result in results %}
+                                <div>
+                                    <h5>{{ result.titulo }}</h5>
+                                    <p>{{ result.descricao }}</p>
+                                    <a
+                                        href="{% url 'virtualstore:produto-detalhe' result.slug %}"
+                                        class="btn btn-primary">Detalhes
+                                    </a>
+                                </div>
+                                <hr>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<!-- Adicione o JS do Bootstrap para que o modal funcione -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Script para abrir o modal automaticamente -->
+<script>
+    $(document).ready(function(){
+        $('#resultadoPesquisaModal').modal('show');
+    });
+</script>
+{% endblock %}

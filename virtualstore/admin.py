@@ -1,14 +1,24 @@
 from django.contrib import admin
-from .models import Cliente, Categoria, Produto, Carrinho, CarrinhoProduto, PedidoOrdem
+from .models import Admin, Cliente, Categoria, Produto, Carrinho, CarrinhoProduto, PedidoOrdem, Post
 
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ['titulo', 'imagem_categoria']  # Adicione 'imagem_categoria' à lista de campos exibidos
-    search_fields = ['titulo']  # Permitir pesquisa por título
-    prepopulated_fields = {'slug': ('titulo',)}  # Preencher automaticamente o campo de slug com base no título
+    list_display = ['titulo', 'imagem_categoria']  
+    search_fields = ['titulo']  
+    prepopulated_fields = {'slug': ('titulo',)}  
 
-# Verificar se a Categoria ainda não está registrada antes de registrar
-if not admin.site.is_registered(Categoria):
-    admin.site.register(Categoria, CategoriaAdmin)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['titulo_post', 'autor', 'data_publicacao', 'imagem_post']
+    search_fields = ['titulo_post', 'conteudo']
+    list_filter = ['data_publicacao']
+    date_hierarchy = 'data_publicacao'
+    ordering = ['-data_publicacao']
+    
+admin.site.register(Categoria, CategoriaAdmin)
+admin.site.register(Produto)
+admin.site.register(Carrinho)
+admin.site.register(CarrinhoProduto)
+admin.site.register(PedidoOrdem)
 
-admin.site.register([Cliente, Produto, Carrinho, CarrinhoProduto, PedidoOrdem])
+# Registre o modelo Post associado ao PostAdmin
+admin.site.register(Post)
 

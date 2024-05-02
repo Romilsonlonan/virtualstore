@@ -1,0 +1,60 @@
+{% extends 'bases/base.html' %}
+{% load humanize %}
+{% load static %}
+
+
+{% block title %}Detalhe do Pedido{% endblock %}
+
+{% block content %}
+<!--ERROR AO CRIAR AS LABELS-->
+<div class="container-detalhe-pedido">
+    <div class="row">
+        <div class="col-md-8 max-auto">
+            <h3 class="">Detalhe do Pedido</h3>
+            <p class="font-weight-bold"><samp>Produto ID: </samp><samp>Pedido_{{pedido_obj.id}}</p></samp>
+            <p class="font-weight-bold"><samp>Status do Pedido: </samp><samp>{{pedido_obj.pedido_status}}</p></samp>
+            <p class="font-weight-bold"><samp>Data Efetuado: </samp><samp>{{pedido_obj.criado_em}}</p></samp>
+            <p class="font-weight-bold"><samp>Informação Cliente: </samp><samp>{{pedido_obj.ordenado_por}}</p></samp>
+            <p class="font-weight-bold"><samp>Telefone Cliente: </samp><samp>{{pedido_obj.telefone}}</p></samp>
+            <p class="font-weight-bold"><samp>Email Cliente: </samp><samp>{{pedido_obj.endereco_envio}}</p></samp>
+            <hr>
+            <h4>Itens do Pedido</h4>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Item</th>
+                        <th>Avalição</th>
+                        <th>Quantidade</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cp in pedido_obj.carrinho.carrinhoproduto_set.all %}#
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>
+                            <a target="blank" 
+                                href="{% url 'virtualstore:produtodetalhe' %}">
+                                {{cp.produto}}{{cp.produto.id}}
+                            </a>
+                        </td>
+                        <td>{{cp.avaliacao}}</td>
+                        <td>{{cp.quantidade}}</td>
+                        <td>{{cp.subtotal}}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <th colspan="4" class="text-right">Valor Total</th>
+                        <th>R$ {{pedido_obj.total|intcomma}}</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

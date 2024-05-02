@@ -1,9 +1,70 @@
 {% extends 'bases/base.html' %}
+{% load static %}
+
 {% block title %}Carrinho{% endblock %}
+
+{% block head %}
+<!-- Adicione o CSS do Bootstrap para estilizar o modal -->
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
 
 {% block content %}
 
-<div class="container">
-    Produto adicionado no carrinho
+<section>
+    {% include 'home.html' %}
+</section>
+
+<!-- Modal de Produto Adicionado -->
+<div class="modal fade" id="produtoAdicionadoModal" tabindex="-1" role="dialog"
+    aria-labelledby="produtoAdicionadoModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="produtoAdicionadoModalLabel">Produto
+                    Adicionado ao Carrinho</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="{% static 'img/obrigado.png' %}" class="img-fluid"
+                    alt="Imagem Motivadora">
+                <p>Parabéns! Você adicionou um produto ao carrinho. Continue
+                    navegando em nossa loja para encontrar mais produtos
+                    incríveis!</p>
+            </div>
+            <div class="modal-footer">
+                <a href="{% url 'virtualstore:home' %}"
+                    class="btn btn-secondary">Fechar</a>
+            </div>
+
+        </div>
+    </div>
 </div>
+
+<!-- Botão para abrir o Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal"
+    data-target="#produtoAdicionadoModal" style="display: none;"
+    id="produtoAdicionadoBtn">
+    Produto Adicionado ao Carrinho
+</button>
+
+{% endblock %}
+
+{% block scripts %}
+<!-- Adicione o JS do Bootstrap para que o modal funcione -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Script para exibir o modal ao carregar a página -->
+<script>
+  $(document).ready(function(){
+    $('#produtoAdicionadoBtn').click();
+  });
+</script>
 {% endblock %}

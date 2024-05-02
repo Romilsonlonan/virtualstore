@@ -4,16 +4,46 @@
 {% block title %}navbar{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static '/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 {% endblock %}
 
 {% block content %}
-<section class="container">
-    <nav>
-        <div class="box">
-            <a href="/" class="logo-link">
-                <img src="{% static '/img/logo.png' %}"
-                    alt="Logo">
+<section>
+    <header class="container">
+        <div class="icon-frete text-right">
+            <p
+                style="color: white; display: inline-block; vertical-align: middle;">Frete
+                grátis e entrega rápida! <img
+                    src="https://img.icons8.com/?size=64&id=etRqsBHtSyMZ&format=png"
+                    style="width: 30px; vertical-align: middle;" /></p>
+        </div>
+        <!-- Adicione seus ícones de redes sociais aqui -->
+        <div class="redes-sociais">
+            <span class="redes-sociais-texto">Siga-nos nas redes sociais</span>
+            <a href="#" class="redes-sociais whatsapp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#"
+                class="redes-sociais tiktok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="#" class="redes-sociais facebook">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" class="redes-sociais instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="redes-sociais kwai">
+                <i class="fab fa-kwai"></i>
+            </a>
+        </div>
+
+        <br>
+        <div class="header-top">
+            <a href="/" class="logo">
+                <div class="row">
+                    <img src="{% static '/img/logo.png' %}" alt="Logo">
+                </div>
             </a>
             <div class="pesquisa" id="navbarNav">
                 <form action="/search">
@@ -21,48 +51,53 @@
                     <button type="submit">Pesquisar</button>
                 </form>
             </div>
+            <a href="/" class="cesto">
+                <img src="{% static '/img/cesto.png' %}" alt="Cesto">
+            </a>
         </div>
-    </nav>
-    <nav>
-        <div>
-            <ul>
-                <li class="box-link">
-                    <a class="text-link-a"
-                        href="{% url 'virtualstore:home' %}">HOME</a> |
-                    <a class="text-link-a"
-                        href="{% url 'virtualstore:sobre' %}">SOBRE</a> |
-                    <a class="text-link-a"
-                        href="{% url 'virtualstore:contato' %}">CONTATO</a> |
-                    <a class="text-link-a"
-                        href="{% url 'virtualstore:todos-produtos' %}">CATEGORIAS</a>
-                    |
-                    <a class="text-link-a"
-                        href="{% url 'virtualstore:meucarrinho' %}">CARRINHO</a>
-                    |
-                    {% if request.user.cliente %}
-                    Seja bem vindo{{request.user.username}} |
-                    <a class="text-link-a"
-                        href="{% url 'virtualstore:clientesair' %}">SAIR</a> |
-                    {% else %}
-                    <a class="text-link-a"
-                        href="{% url 'virtualstore:clienteregistrar' %}">CADASTRAR
-                        CLIENTES</a> |
-                    <a class="text-link-a"
-                        href="{% url 'virtualstore:clienteentrar' %}">ENTRAR</a>
-                    |
-                    {% endif %}
-                </li>
-            </ul>
-        </div>
-    </nav>
+        <nav class="row">
+            <div>
+                <ul>
+                    <li class="nav-link">
+                        <a class="text-link-a"
+                            href="{% url 'virtualstore:home' %}">Loja</a>
+                        <a class="text-link-a"
+                            href="{% url 'virtualstore:blog' %}">Blog</a>
+                        <a class="text-link-a"
+                            href="{% url 'virtualstore:contato' %}">Contato</a>
+                        <a class="text-link-a"
+                            href="{% url 'virtualstore:todos-produtos' %}">Categorias</a>
+                        <a class="text-link-a"
+                            href="{% url 'virtualstore:meucarrinho' %}">Carrinho</a>
+                        {% if request.user.cliente %}
+                        Seja bem vindo{{request.user.username}}
+                        <a class="text-link-a"
+                            href="{% url 'virtualstore:clientesair' %}">Sair</a>
+                        {% else %}
+                        <a class="text-link-a"
+                            href="{% url 'virtualstore:clienteregistrar' %}">Cadastrar
+                            clientes</a>
+                        <a class="text-link-a"
+                            href="{% url 'virtualstore:clienteentrar' %}">Entrar</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 </section>
+
 <section>
-    <div class="box-banner">
-        <div class="banner">
-            <img src="{% static '/img/promocao.png' %}" alt="Promoção">
+    <div class="banner-loja">
+        <div class="row">
+            <img src="{% static '/img/promocao.png' %}"
+                alt="Promoção">
             <!--    <img src="{% static '/img/frete.png' %}" alt="frete"> -->
         </div>
     </div>
 </section>
 
+<script src="https://kit.fontawesome.com/52d98fe718.js"
+    crossorigin="anonymous">
+</script>
 {% endblock %}

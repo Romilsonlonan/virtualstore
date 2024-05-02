@@ -1,0 +1,47 @@
+################################################
+#################### TO DO #####################
+################################################
+
+TESTES: 
+python manage.py test virtualstore
+
+IDÉIAS PRA CRIAR UM BLOG:
+
+https://youtu.be/eK2sfDWQUXc?si=JBlxWMtv2sj6C63k
+https://youtu.be/aadiQA8cBAg?si=GIi_Yin41tEQyqC9
+
+
+IDÉIAS PRA CRIAR UM newsletter:
+
+https://youtu.be/PKJts7fMp9o?si=5d_MDiUzOK3sCNCa
+https://youtu.be/X_1pTAXvf-Y?si=DUmdRYTcAtTbD19s
+
+
+INSTALAÇÕES: 
+
+pip install django 
+pip install pillow
+pip install django-ckeditor (documentação - https://django-ckeditor.readthedocs.io/en/latest/#installation)
+python manage.py collectstatic
+pip install django-ckeditor>=6.0.0 (versão que esta funcionando)
+
+COMANDO DE MIGRAÇÕES:
+
+python manage.py makemigrations 
+python manage.py migrate 
+python manage.py showmigrations
+
+
+LINKS PARA ICONES
+
+https://icons8.com.br/line-awesome 
+
+
+
+<script src="https://kit.fontawesome.com/52d98fe718.js"
+    crossorigin="anonymous">
+</script>
+
+
+
+

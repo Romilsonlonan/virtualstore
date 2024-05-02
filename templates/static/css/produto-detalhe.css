@@ -1,0 +1,70 @@
+/*CONTAINER PRODUTO DETALHE AO CLICAR NO BOTÃO(PENDENT) */
+
+.container-detalhe {
+    max-width: 80% !important;
+    height: auto;
+    margin: 0 auto;
+    overflow: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0; 
+    margin-left: auto;
+}
+
+/* Variáveis CSS */
+:root {
+    --coluna-imagem: 6; /* Definindo o tamanho da coluna para a imagem */
+    --coluna-info: 5; /* Definindo o tamanho da coluna para as informações do produto */
+}
+
+.titulo-detalhe {
+    align-items: 0 center;
+    margin-top: 3%;
+    margin-left: 100px; /* Adiciona margem à esquerda */
+    margin-right: 100px; /* Adiciona margem à direita */
+}
+
+/* Imagem do produto */
+.produto-imagem img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px; /* Adicionando margem inferior para separação */
+    margin-top: 13%;
+    margin-left: 100px; /* Adiciona margem à esquerda */
+    margin-right: 100px; /* Adiciona margem à direita */
+}
+
+/* Informações do produto */
+.produto-info {
+    padding-left: 15px; /* Adicionando um padding à esquerda */
+    margin-top: -4%;
+}
+
+.produto-info h3 {
+    font-size: 24px; 
+}
+/* Estilos para o texto alinhado à esquerda */
+.texto-descricao {
+    text-align: justify;
+}
+
+/* Estilos para o botão de comprar */
+.btn {
+    margin-top: 4%;
+}
+
+@media (min-width: 768px) {
+    /* Definindo a largura das colunas */
+    .produto-imagem {
+        flex: 0 0 calc((var(--coluna-imagem) / 12) * 100%);
+        max-width: calc((var(--coluna-imagem) / 12) * 100%);
+        padding-right: 15px;
+    }
+
+    .produto-info {
+        flex: 0 0 calc((var(--coluna-info) / 12) * 100%);
+        max-width: calc((var(--coluna-info) / 12) * 100%);
+        padding-left: 15px;
+    }
+}

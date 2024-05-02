@@ -1,0 +1,48 @@
+{% extends 'admin_paginas/adminbase.html' %}
+
+{% load static %}
+
+{% block title %}Todos os Pedidos{% endblock %}
+
+{% block content %}
+<!--ERROR AO CRIAR AS LABELS-->
+<div class="container-todos-pedidos">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class>todos Pedidos</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>ID Pedido</th>
+                        <th>Cliente</th>
+                        <tid>Data Pedido</tid>
+                        <th>Valor</th>
+                        <th>Status Produtos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pedido in todospedidos %}
+
+                    <tr>
+                        <td>{{forloop.ordenado_por}}</td>
+                        <td>
+                            <a
+                                href="{% url 'virtualstore:clienteentrar' pedido.id %}">#Pedido_{{pedido.id}}
+                            </a>
+                        </td>
+                        <td>{{pedido.criado_em}}</td>
+                        <td>{{pedido.ordenado_por}}</td>
+                        <td>{{pedido.criado_em}</td>
+                        <td>{{pedido.total}}</td>
+                        <td>{{pedido.pedido_status}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

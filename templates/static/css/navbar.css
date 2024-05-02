@@ -1,0 +1,128 @@
+/* CORRIGINDO PROBLEMA DE ESPAÇAMENTO EM BRANCO NAS BORDAS SUPERIOR E INFERIOR E LATERAIS EM TODAS AS PÁGINAS */
+html, body{
+    margin:0px !important;
+    padding: 0px !important;
+ }
+
+body {
+    background-color: none; /* Remover qualquer cor de fundo padrão */
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 1370px;
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+:root{
+    --color-white:#fff;
+    --color-yellow:#f8e809;
+    --color-dark1:#272727;
+    --color-dark2:#414141;
+    --color-purple:#b040ff;
+    --color-gradiente-especial: linear-gradient(to bottom, #3c1053, #ad5389, #3c1053);
+}
+
+/* Estilos personalizados para o header */
+section {
+    max-width: 100%; /*largura maxima de toda a seção */
+    background: linear-gradient(to bottom, #ad5389, #3c1053);
+    height: 200%; /*Altura de toda a seção*/
+}
+
+/*CONTAINER DA NAVBAR*/
+/* Estilos para a barra de navegação */
+
+/* Estilos para o cabeçalho container*/
+.container {
+    max-width: 80%;
+    background: linear-gradient(to bottom, #ad5389, #3c1053);
+}
+
+
+.header-top {  /* New styles for top section */
+  display: flex;
+  justify-content: space-between; /* Distribute elements horizontally */
+  align-items: center;
+  padding: 10px 0;  /* Add some padding for spacing */
+}
+
+.logo img {
+    width: 160px;
+}
+
+.cesto img {
+    width: 70px;
+}
+
+
+.pesquisa form {
+    display: flex;
+    align-items: center;
+}
+
+.pesquisa input[type="text"] {
+    align-items: center;
+    width: 550px; /* Largura da caixa de pesquisa */
+    padding: 8px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda da caixa de pesquisa */
+    border-radius: 5px; /* Raio da borda */
+    margin-right: 10px; /* Espaçamento à direita */
+}
+
+.pesquisa button[type="submit"] {
+    padding: 8px 15px; /* Espaçamento interno */
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda */
+    border-radius: 5px; /* Raio da borda */
+    cursor: pointer; /* Muda o cursor para uma mão ao passar sobre o botão */
+}
+
+.pesquisa button[type="submit"]:hover {
+    background-color: #007bff; /* Cor de fundo do botão ao passar o mouse */
+}
+
+.nav-link {
+    text-align: center;
+    font-weight: bold; /* Makes text bolder */
+    margin-top: 30px;    
+}
+
+.nav-link a{
+    color: var(--color-white);
+    font-weight: bold 700px; /* Makes text bolder */
+    text-decoration: none;
+    font-weight: bold; /* Makes text bolder */
+    padding: 18px;
+}
+  
+.redes-sociais-texto {
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: bold 700px;
+}
+
+.redes-sociais {
+    margin-top: -4%;
+    text-decoration: none;
+    color: var(--color-yellow);
+
+}
+
+
+.banner-loja {
+    width: 100%; /* Ocupa toda a largura disponível */
+    height: 100vh; /* Ocupa toda a altura da viewport */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.banner-img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse o container */
+    max-height: 100%; /* Garante que a imagem não ultrapasse o container */
+}
+
+.banner-img {
+    width: 100%; /* Garante que a imagem ocupe toda a largura disponível */
+    height: auto; /* Permite que a altura se ajuste automaticamente */
+}

@@ -1,0 +1,324 @@
+/* CARDS CONTAINER ATENDIMENTOS ESPECIALIZADO */
+
+.container-home {
+    align-items: center;
+    max-width: 100% !important;
+    height: auto;
+    margin: 0 auto;
+    overflow: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 0; 
+    background: linear-gradient(to bottom, #cecccd, #b4b2b4);
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between; 
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.cards {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-right: 22px; /* Espaço entre os cards */
+    flex: 1; /* Os cards têm tamanho igual */
+    max-width: 300px; /* Largura máxima para os cards */
+    align-items: center;
+
+}
+
+.card img {
+    /* Adjust image size here */
+    width: 80%; /* Example: Set image width to 80% of card width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Ajuste opcional para cards menores em telas pequenas */
+@media (max-width: 768px) {
+    .cards-container {
+        flex-wrap: wrap; /* Quebra os cards em linhas em telas pequenas */
+        justify-content: flex-start; /* Alinha os cards à esquerda */
+    }
+    .card {
+        margin-bottom: 10px; /* Espaço entre os cards */
+    }
+}
+
+
+/* FIM */
+/*===========================================================================================*/
+
+/* ########## ESTILOS PARA SEÇÃO DE CADS DE PRODUTOS NA COLUNA-PRODUTOS #############*/
+ 
+.card {
+    width: 90%;
+    height: 80%;
+    object-fit: cover; /* Garante que a imagem cubra todo o espaço do contêiner */
+    border-radius: 0.25rem; /* Borda arredondada */
+    background-color: #fff; /* Cor de fundo */
+    /*margin-bottom: 10px; /* Margem inferior */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.card-img-top {
+    border-top-left-radius: calc(0.25rem - 1px); /* Borda arredondada superior esquerda */
+    border-top-right-radius: calc(0.25rem - 1px); /* Borda arredondada superior direita */
+}
+
+.card-body {
+    padding: 1.25rem; /* Espaçamento interno */
+}
+
+.card-title {
+    text-decoration: none; /* Remove o sublinhado do link */
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 0.55rem; /* Margem inferior do título */
+    font-size: 1.25rem; /* Tamanho do título */
+}
+
+/* margem do texto do botão*/
+.card-text {
+    margin-top: 6%;
+    margin-bottom: 1rem; /* Margem inferior do texto */
+    font-size: 1rem; /* Tamanho do texto */
+}
+
+.card:hover {
+    border: 5px solid rgba(202, 171, 30, 0.125); /* Borda com sombra */
+    border-color: #e0cc19; /* altera a cor da borda ao passar o mouse */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.09); /* Aumenta o tamanho em 5% */
+    transition: transform 0.1s ease; /* Adiciona uma transição suave */
+  }
+
+.btn {
+    color: #fff; /* Cor do texto do botão */
+    background-color: #007bff; /* Cor de fundo do botão */
+    border-color: #007bff; /* Cor da borda do botão */
+    border-radius: 0.25rem; /* Borda arredondada do botão */
+    padding: 0.375rem 0.75rem; /* Espaçamento interno do botão */
+    font-size: 1rem; /* Tamanho do texto do botão */
+    cursor: pointer; /* Cursor ao passar sobre o botão */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+    border-color: #0056b3; /* Cor da borda do botão ao passar o mouse */
+    transform: scale(1.09); /* Aumenta o tamanho em 5% */
+    transition: transform 0.1s ease; /* Adiciona uma transição suave */
+}
+
+.product-column {
+    width: 16.666666666%; /* quivale a col-md-2 em uma grade de 12 colunas do Bootstrap */
+    margin-bottom: 35px; /* Adicione margem inferior conforme necessário */
+}
+
+
+/*===========================================================================================*/
+
+/* Variáveis para as larguras das colunas */
+:root {
+    --coluna-produtos: 60%; /* Largura da coluna de produtos */
+    --coluna-posts: 40%; /* Largura da coluna de posts */
+}
+  
+  
+/* ####################### PRIMEIRA COLUNA PRODUTOS ######################### */
+
+
+
+/* teste xxxxxxxxxxxxxx */
+
+/* Estilos para a seção principal */
+.conteudo {
+    display: flex; /* Organiza o conteúdo em colunas */
+}
+
+/* Estilos para a seção de produtos */
+.container-fluid-produtos {
+    width: 100%; /* Ajuste a largura conforme necessário */
+    margin: 0 auto; /* Centraliza a seção */
+    padding: 20px;
+}
+
+/* Estilos para os cards de produtos */
+.card {
+    border: none; /* Remove a borda padrão */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra sutil */
+    transition: transform 0.3s ease; /* Adiciona transição suave para hover */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Aumenta a escala do card em hover */
+}
+
+.card-produto-img {
+    width: 100%; /* Ocupa toda a largura do card */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px; /* Arredonda os cantos da imagem */
+    margin-right: 10%;
+    margin-left: 10%;  
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    margin-bottom: 1rem; /* Adiciona espaço abaixo do título */
+}
+
+.card-text {
+    color: #333; /* Cor do texto */
+    margin-bottom: 1rem; /* Adiciona espaço abaixo do texto */
+}
+
+.btn {
+    background-color: #007bff; /* Cor de fundo do botão */
+    color: #fff; /* Cor do texto do botão */
+    border: none; /* Remove a borda do botão */
+    padding: 10px 20px; /* Ajuste o padding do botão */
+    border-radius: 5px; /* Arredonda os cantos do botão */
+
+}
+  
+
+/* ####################### SEGUNDA COLUNA ######################### */
+
+/* Estilos para a segunda coluna (posts) */
+.container-fluid-posts main {
+    width: var(--coluna-posts); /* Usa a variável para a largura */
+    padding: 40px; /* Espaçamento interno */
+
+}
+
+.container-fluid-posts {
+    display: flex; /* Arrange posts in columns */
+    flex-wrap: wrap; /* Wrap posts to multiple rows if needed */
+    justify-content: space-between; /* Distribute space evenly between posts */
+    margin: 25px; /* Add spacing around the container */
+}
+
+.coluna-posts {
+    flex: 15px 10px var(--coluna-posts); /* Define a largura da coluna */
+    height: auto;
+}
+
+/*Não funcionou! */
+.detalhe-post {
+    text-decoration: none;
+}
+
+/* Sem serventia por enquanto */
+/*
+.box-posts {
+    display: flex;
+    align-items: center;
+    max-width: 350px; 
+    margin: 30px auto;
+    padding: 150px;
+    border: 1px solid #ccc;
+    background: linear-gradient(to bottom, #ad5389, #3c1053);
+}
+*/
+/*
+.box-posts img {
+    width: 200px; 
+    height: auto; 
+    margin-right: 20px;  
+}
+*/
+
+.row {
+    display: flex; /* Organiza os produtos em linhas */
+    flex-wrap: wrap; /* Permite quebrar linhas se necessário */
+}
+  
+  
+.container-post { /* Assuming Bootstrap's grid system */
+    width: 30%; /* Set width as a percentage for responsive layout */
+    padding: 10px; /* Add padding within each column */
+}
+  
+/* Individual Post Styling */
+.card-post {
+    margin-bottom: 15px; /* Add spacing between posts */
+    border: 1px solid #ddd; /* Add a subtle border */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Exemplo: Se a marcação for um `span` com a classe `maker` */
+.page-item {
+    display: none; /* Esconde a marcação */
+    text-decoration: none;
+}
+
+/*===========================================================================================*/
+
+/* CARDS CONTAINER "CATEGORIAS " */
+
+.box-categorias {
+    text-align: center;
+    max-width: 115%;
+    height: auto;
+    margin-left: -30px;
+    overflow: auto;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 2%; /* Adicione margem superior para espaçamento */
+    /* Define um degradê linear como plano de fundo */
+    background: linear-gradient(to bottom, #ad5389, #3c1053);
+}
+
+.box-categorias h2 {
+    margin-top: 1%; /* Margem superior para separar o título do conteúdo */
+    color: white; /* Cor do texto do título */
+    font-weight: 900; /* Deixa o texto em negrito */
+}
+
+.card-categorias-lista {
+    list-style: none; /* Remove os marcadores de lista */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card-categorias-lista li {
+    margin: 0 10px; /* Espaçamento entre os itens da lista */
+    margin-top: 2%;
+}
+
+.card-categorias-lista li:hover {
+    border-color: #e0cc19; /* altera a cor da borda ao passar o mouse */
+    transform: scale(1.09); /* Aumenta o tamanho em 5% */
+    transition: transform 0.1s ease; /* Adiciona uma transição suave */
+}
+
+
+.card-categorias-lista li a {
+    display: block; /* Transforma o link em bloco */
+}
+
+.card-categorias-lista img {
+    height: 200px;
+    width: 200px; /* Corrigindo a propriedade height duplicada para width */
+    border-radius: 50%;
+    border: 8px solid blue;
+    
+}

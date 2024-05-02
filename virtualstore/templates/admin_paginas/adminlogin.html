@@ -1,0 +1,31 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}Entrar{% endblock %}
+
+{% block content %}
+<!--ERROR AO CRIAR AS LABELS-->
+<div class="container-admin align-items-center">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+
+            <h3>Admin</h3>
+            <form action method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary">Entrar</button>
+                {% if error %}
+                <li style="color: red; font-size:10px">{{error}}</li>
+                {% endif %}
+            </form>
+            <p>Se você ainda não é acadastrado? Cadastre-se!
+                <a
+                    href="{% url 'virtualstore:clienteregistrar'%}{% if request.GET.next %}?next={{request.GET.next}}{% endif %}">Cadastrar
+
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

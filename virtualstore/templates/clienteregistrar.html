@@ -1,0 +1,67 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}Registrar Clientes{% endblock %}
+
+{% block head %}
+<!-- Adicione o CSS do Bootstrap para estilizar o modal -->
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+<section>
+    <div>
+        <div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
+            aria-labelledby="registerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"
+                            id="registerModalLabel">Registrar
+                            Clientes</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{% url 'virtualstore:clienteregistrar' %}"
+                            method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit"
+                                class="btn btn-primary">Cadastrar
+                                Cliente</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-registrar">
+            <button type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#registerModal">Registrar Cliente
+            </button>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+<!-- Adicione o JS do Bootstrap para que o modal funcione -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Script para exibir o modal ao carregar a página -->
+<script>
+  $(document).ready(function(){
+    $('#form_validBtn').click();
+  });
+</script>
+{% endblock %}

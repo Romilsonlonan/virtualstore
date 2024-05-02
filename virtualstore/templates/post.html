@@ -1,0 +1,32 @@
+{% extends 'bases/base.html' %}
+{% load static %}
+
+{% block title %}post{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static '/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section>
+    <div class="blog-post">
+        <h2 class="blog-post-title">
+            <a
+                href="/posts/{{ post.pk }}">{{post.titulo_post}}
+            </a>
+        </h2>
+        <p class="blog-post-meta">
+            {{post.data_publicacao | date:'d, M, Y'}} by
+            <a
+                href="#">{{post.autor_post.get_full_name}}
+            </a>
+        </p>
+        <img src="{{ post.imagem_post.url }}"
+            alt="{{ post.titulo_post }}">
+        <br />
+        {{ post.conteudo_post|safe }}
+    </div>
+</section>
+
+{% endblock %}

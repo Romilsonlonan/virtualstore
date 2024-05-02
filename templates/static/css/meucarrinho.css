@@ -1,0 +1,98 @@
+
+/*===========================================================================================*/
+
+/* CONTAINER MEU CARRINHO */
+
+.container-carrinho{
+    display: flex;
+    align-items: center;
+    width: 55%; /* Largura máxima do container */
+    margin: 0 auto; /* Centralizar o container na página */
+    padding: 20px; /* Espaçamento interno */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 10px; /* Borda arredondada */
+    margin-left: 22%; /* Adiciona margem à esquerda */
+    margin-right: 22%; /* Adiciona margem à direita */
+}
+
+.coluna-car {
+    width: 66.666%; /* Correspondente a 8 colunas em um total de 12 */
+
+}
+
+.sexto-carrinho img {
+    height: 100px;
+    width: 105px; /* Corrigindo a propriedade height duplicada para width */
+    border-radius: 60%;
+    margin: 0 60%; /* Alinha a imagem ao centro horizontalmente */
+    margin-top: 5%;
+
+}
+
+/* Estilos para a tabela do carrinho */
+.tabela-car {
+    
+    background-color: #f9f9f9; /* Cor de fundo da tabela */
+    padding: 15px; /* Espaçamento interno */
+    border-radius: 10px; /* Borda arredondada */
+    margin-left: 100px; /* Adiciona margem à esquerda */
+    margin-right: 100px; /* Adiciona margem à direita */
+}
+
+/* Estilos para o título da tabela */
+.tabela-car h4 {
+    font-size: 1.5em; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilos para a tabela */
+.tabela {
+    width: 100%; /* Largura total */
+    border-collapse: collapse; /* Colapsar bordas */
+}
+
+/* Estilos para as células da tabela */
+.tabela td, .tabela th {
+    padding: 10px; /* Espaçamento interno */
+    border-bottom: 1px solid #ddd; /* Borda inferior */
+}
+
+/* Estilos para os cabeçalhos da tabela */
+.tabela th {
+    background-color: #f2f2f2; /* Cor de fundo dos cabeçalhos */
+    font-weight: bold; /* Negrito */
+}
+
+/* Estilos para os botões dentro da tabela */
+.tabela a {
+    text-decoration: none; /* Remover sublinhado dos links */
+    padding: 5px 10px; /* Espaçamento interno */
+    margin: 0 5px; /* Margem */
+    border-radius: 5px; /* Borda arredondada */
+}
+
+/* Estilos para os botões de ação */
+.btn-amarelo {
+    background-color: yellow; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+}
+
+.btn-azul {
+    background-color: blue; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+}
+
+.btn-vermelho {
+    background-color: red; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+}
+
+.btn-aviso {
+    background-color: orange; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+}
+
+.btn-info {
+    background-color: #007bff; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+}
